@@ -11,7 +11,9 @@ To solve this problem, let's create a new class called HikingBackpack by extendi
 
 Here's the original Backpack class for reference:
 
+
 class Backpack {
+
   constructor(
     // Defines parameters:
     name,
@@ -21,7 +23,8 @@ class Backpack {
     strapLengthL,
     strapLengthR,
     lidOpen
-  ) {
+  ) 
+  {
     // Define properties:
     this.name = name;
     this.volume = volume;
@@ -31,21 +34,26 @@ class Backpack {
       left: strapLengthL,
       right: strapLengthR,
     };
+    
     this.lidOpen = lidOpen;
   }
   // Add methods like normal functions:
   toggleLid(lidStatus) {
     this.lidOpen = lidStatus;
   }
+  
   newStrapLength(lengthLeft, lengthRight) {
     this.strapLength.left = lengthLeft;
     this.strapLength.right = lengthRight;
   }
 }
+
+
 To create a new class from an existing one, use the extends keyword followed by the name of the class you want to extend:
 
 class HikingBackpack extends Backpack {}
 Next, define all the properties the class needs in the constructor. This includes both the existing properties from the parent class and any new properties you want to add:
+
 
 class HikingBackpack extends Backpack {
   constructor(
@@ -57,13 +65,15 @@ class HikingBackpack extends Backpack {
     strapLengthR,
     lidOpen,
     hydrationCapacity
-  ) {
+  ) 
+  {
     // Initialize the parent class properties
     super(name, volume, color, pocketNum, strapLengthL, strapLengthR, lidOpen);
     // New property specific to HikingBackpack
     this.hydrationCapacity = hydrationCapacity; // Capacity in liters
   }
 }
+
 In the above example, you see hydrationCapacity has been added in the constructor. This is the new property specific to the HikingBackpack class. The super() method is used to call the constructor of the parent class and pass in the properties common to both classes. Finally, the new hydrationCapacity property is added.
 
 The new HikingBackpack class can also be extended with new methods. That's done the same way as before:
@@ -76,6 +86,7 @@ The new HikingBackpack class can also be extended with new methods. That's done 
       console.log("Time to refill your water!");
     }
   }
+  
 You can also override methods from the parent class by defining a new method with the same name, calling in the parent method with the super keyword, and then adding new functionality:
 
 toggleLid(lidStatus) {
@@ -98,7 +109,8 @@ class HikingBackpack extends Backpack {
     strapLengthR,
     lidOpen,
     hydrationCapacity
-  ) {
+  )
+  {
     // Initialize the parent class properties
     super(name, volume, color, pocketNum, strapLengthL, strapLengthR, lidOpen);
     // New property specific to HikingBackpack
